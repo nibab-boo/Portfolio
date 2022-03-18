@@ -1,5 +1,55 @@
 // Specific CSS for your home-page
-.whoiam {
+.whoami {
   height: calc(100vh - 100px - 80px);
   background-color: $main-color;
+  padding: 24px 0 0;
+}
+
+.whoami-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .whoami-intro {
+    font-size: 2em;
+    color: $ligher;
+    width: 60vw;
+    font-family: $headers-font;
+    margin-bottom: 24px;
+    .lightest {
+      color: $lightest;
+      filter: drop-shadow(0 0 0.85rem $ligher);
+    }
+  }
+
+  .tools-i-use {
+    h5 {
+      color: $darker;
+      // margin-left: 100px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .lang-box {
+      // display: grid;
+      // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      display: flex;
+      padding: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      .lang {
+        min-width: 120px;
+        height: auto;
+        padding: 8px;
+        margin: 8px;
+        font-size: 1.8em;
+        color: $ligher;
+        background-color: adjust-color($color: #000B49, $lightness: .5%, $alpha: 1.0);  
+        img {
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
 }

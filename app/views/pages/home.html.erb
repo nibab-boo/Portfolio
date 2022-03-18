@@ -6,7 +6,35 @@
   </ul>
 </div>
 
-<div class="whoiam">
+<div class="whoami">
+  <div class="whoami-box">
+    <h2 class="whoami-intro">
+      I am  <span class="lightest">Babin Bohora</span>. I am a <span class="lightest">Fullstack Web Developer</span>.
+    </h2>
+    <div class="tools-i-use">
+      <h5>Powers I hold</h5>
+      <div class="lang-box">
+        <div class="front-end lang">
+          <i class="fa-brands fa-html5" alt="html5"></i>
+          <i class="fa-brands fa-css3" title="css3"></i>
+          <i class="fa-brands fa-sass" title="sass"></i>
+          <%# <i class="fa-brands fa-js" title="javascript"></i> %>
+          <%= render 'components/javascript' %>
+          <i class="fa-brands fa-bootstrap"></i>
+        </div>
+        <div class="back-end lang">
+          <%= image_tag 'rubyonrails.svg', width: "68px", alt: "ruby on rails" %>
+        </div>
+        <div class="tools lang">
+          <i class="fa-brands fa-git-alt"></i>
+          <i class="fa-brands fa-github"></i>
+          <%= render 'components/postgres' %>
+          <%= render 'components/heroku' %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="footer">
