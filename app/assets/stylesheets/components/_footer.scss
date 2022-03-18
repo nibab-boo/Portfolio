@@ -1,0 +1,29 @@
+.footer {
+  width: 100%;
+  height: 80px;
+  background-color: #000B49;
+  font-family: $headers-font;
+  color: $lightest;
+  padding: 16px 0;
+  font-weight: bold;
+  
+  .link-list {
+    height: 100%;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    li {
+      font-size: 1.3em;
+      padding: 0px 16px;
+      a {
+        color: inherit;
+        &:hover {
+          color: $ligher;
+        }
+      }
+    }
+  }
+}
