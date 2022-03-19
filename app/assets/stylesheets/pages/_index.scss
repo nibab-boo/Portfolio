@@ -1,6 +1,13 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "case_studies";
 
-.body{
-  background-color: $body-color;
+body{
+  background-color: $main-color;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $lightest;
+  }
+
+  color: $darker;
 }
