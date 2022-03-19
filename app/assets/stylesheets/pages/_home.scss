@@ -3,6 +3,9 @@
   height: calc(100vh - 100px - 80px);
   background-color: $main-color;
   padding: 24px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .whoami-box {
@@ -14,6 +17,7 @@
     font-size: 2em;
     color: $ligher;
     width: 60vw;
+    max-width: 400px;
     font-family: $headers-font;
     margin-bottom: 24px;
     .lightest {
@@ -51,5 +55,15 @@
       }
     }
   }
+}
 
+@media only screen and (min-width: 800px) {
+ .tools-i-use {
+   margin-top: 36px;
+ }  
+}
+@media only screen and (min-height: 800px) {
+ .tools-i-use {
+   margin-top: 8vh;
+ }  
 }
