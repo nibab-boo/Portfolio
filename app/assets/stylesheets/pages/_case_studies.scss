@@ -4,8 +4,7 @@
   overflow: hidden;
   background: $main-color;
 }
-.case-studies {
-}
+
 
 .project {
   padding-top: 16px;
@@ -15,16 +14,21 @@
   margin: 36px auto;
   img {
     width: 100%;
-    height: 160px;
+    height: auto;
   }
-  
+  .project-name {
+    text-decoration: none;
+    color: inherit;
+  }
   .project-info {
     padding: 8px 16px;
     
     ul {
       list-style: none;
       padding: 0;
-
+      li {
+        padding: 8px 0;
+      }
     }
     
     .info-container {
@@ -61,11 +65,12 @@
     
     h6{
       color: $ligher;
+      font-weight: bold;
     }
     .project-position {
       font-weight: bold;
       color: $ligher;
-      margin: 0 0 8px 8px;
+      margin: 0 0 16px 0px;
     }
 
     .project-experience {
