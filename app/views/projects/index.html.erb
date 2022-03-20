@@ -5,31 +5,34 @@
       <% @projects.each do |project| %>
         <div class="project">
           <%= image_tag "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", alt: "project.name" %>
-        </div>
-        <div class="project-info">
-          <ul>
-            <li><%= project.name %></li>
-            <li><%= project.position %></li>
-            <li>Colors
-              <ul>
-              <% project.colors.each do |color| %>
-                <li><%= color %></li>    
-              <% end %>
-              </ul>
-            
-            </li>
-            <li>Fonts
-              <ul>
-                
-                <% project.fonts.each do |font| %>
-                  <li><%= font %></li>
+          <div class="project-info">
+            <ul>
+              <li><h3><strong><%= project.name %></strong></h3></li>
+              <li class="project-position"><%= project.position %></li>
+              <li><h5>Colors</h5>
+                <ul class="colors-container">
+                <% project.colors.each do |color| %>
+                  <li class="color-box">
+                    <div class="color-circle" style="background: <%= color %>;"></div>
+                    <%= color %>
+                  </li>    
                 <% end %>
-                
-              </ul>
-            
-            </li>
-            <li><%= project.experience %></li>
-          </ul>
+                </ul>
+              
+              </li>
+              <li><h5>Fonts</h5>
+                <ul>
+                  
+                  <% project.fonts.each do |font| %>
+                    <li><%= font %></li>
+                  <% end %>
+                  
+                </ul>
+              
+              </li>
+              <li><%= project.experience %></li>
+            </ul>
+          </div>
         </div>
       <% end %>
       
