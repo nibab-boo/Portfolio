@@ -13,6 +13,19 @@
   </head>
 
   <body>
+    <div class="nav-bar">
+      <ul class="nav-list">
+        <%= link_to root_path do  %>
+          <li>whoami!</li>
+        <% end %>
+        <%= link_to root_path do  %>
+          <li>My Story</li>
+        <% end %>
+        <%= link_to projects_path do  %>
+          <li>Case Studies</li>
+        <% end %>
+      </ul>
+    </div>
     <%#= render 'shared/navbar' %>
     <%#= render 'shared/flashes' %>
 
