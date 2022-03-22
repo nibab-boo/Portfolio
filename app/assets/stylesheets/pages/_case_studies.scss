@@ -1,18 +1,25 @@
 .case-container {
-  width: 100vw;
+  min-width: 100vw;
   height: auto;
   overflow: hidden;
   background: $main-color;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-
 .project {
+  overflow: hidden;
   padding-top: 16px;
-  display: flex;
-  flex-direction: column;
   // border: 2px solid black;
+  box-sizing: border-box;
   margin: 36px auto;
-  img {
+  .project-flex-box {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-image {
     width: 100%;
     height: auto;
   }
@@ -72,12 +79,50 @@
       color: $ligher;
       margin: 0 0 16px 0px;
     }
-
-    .project-experience {
-      padding: 8px;
-      border: 2px solid $ligher;
-      // box-shadow: 0 0 2px $ligher;
-                  // 2px 2px 4px $ligher;
+  }
+  .project-experience {
+    padding: 8px;
+    overflow: hidden;
+    // border: 2px solid $ligher;
+    // display: block;
+    i {
+      color: $ligher;
     }
+  }
+
+}
+
+@media only screen and (min-width: 800px) {
+  .project {
+    .project-flex-box {
+      flex-direction: row;
+    }
+    .project-image {
+      width: 400px;
+      align-self: flex-start;
+      margin-right: 24px;
+    }
+  }
+}
+
+
+@media (min-width: 576px) {
+  .case-container {
+    min-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .case-container{
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .case-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {  
+  .case-container{
+    max-width: 1140px;
   }
 }

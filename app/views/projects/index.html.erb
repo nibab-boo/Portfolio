@@ -7,50 +7,50 @@
 </div>
 
 <div class="case-container">
-  <div class="container">
     <h2> # Case Studies</h2>
     <div class="case-studies">
       <% @projects.each_with_index do |project, index| %>
         <div class="project">
-          <div>
-            <h3><%="#{index + 1}. " %><strong><%= link_to project.name, project.link, class: "project-name"  %></strong></h3>
-              <%= image_tag "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", alt: "project.name" %>
-          </div>
-          <div class="project-info">
-            <ul>
-              <li class="project-position">- <%= project.position %></li>
-              <li>
-                <h6>Colors</h6>
-                <ul class="colors-container info-container">
-                <% project.colors.each do |color| %>
-                  <li class="project-info-box">
-                    <div class="info-circle" style="background: <%= color %>;"></div>
-                    <%= color %>
-                  </li>    
-                <% end %>
-                </ul>
-              
-              </li>
-              <li><h6>Fonts</h6>
-                <ul class="fonts-container info-container">
-                  
-                  <% project.fonts.each do |font| %>
+          <h3><%="#{index + 1}. " %><strong><%= link_to project.name, project.link, class: "project-name"  %></strong></h3>
+          <div class="project-flex-box">
+            <% if project.photo.attached? %>
+              <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image" %>
+            <% else %>
+              <%= image_tag "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", alt: "#{project.name}", class: "project-image" %>
+            <% end %>
+            <div class="project-info">
+              <ul>
+                <li class="project-position">- <%= project.position %></li>
+                <li>
+                  <h6>Colors</h6>
+                  <ul class="colors-container info-container">
+                  <% project.colors.each do |color| %>
                     <li class="project-info-box">
-                      <div class="font-circle info-circle" style="@import url('https://fonts.googleapis.com/css2?family=<%= font %>&display=swap'); font-family: <%= font %>;">Aa</div>
-                      <%= font %>
-                    </li>
+                      <div class="info-circle" style="background: <%= color %>;"></div>
+                      <%= color %>
+                    </li>    
                   <% end %>
-                  
-                </ul>
-              
-              </li>
-              <li class="project-experience"><%= project.experience %></li>
-            </ul>
+                  </ul>
+                
+                </li>
+                <li><h6>Fonts</h6>
+                  <ul class="fonts-container info-container">
+                    
+                    <% project.fonts.each do |font| %>
+                      <li class="project-info-box">
+                        <div class="font-circle info-circle" style="@import url('https://fonts.googleapis.com/css2?family=<%= font %>&display=swap'); font-family: <%= font %>;">Aa</div>
+                        <%= font %>
+                      </li>
+                    <% end %>
+                    
+                  </ul>
+                
+                </li>
+              </ul>
+            </div>
           </div>
+          <p class="project-experience"><i class="fas fa-quote-left"></i> <%= project.experience %> <i class="fa-solid fa-quote-right"></i></p>
         </div>
       <% end %>
-      
     </div>
-
-  </div>
 </div>
