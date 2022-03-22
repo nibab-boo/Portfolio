@@ -1,0 +1,15 @@
+{
+  "Started Lewagon": {
+    "Date": "Sep 9, 2021",
+    "experiences": "undefined"
+  },
+  "worked on TwoByFour": {
+    "Time Interval": "Roughly 2 weeks",
+    "Team": ["Erika", "Byron", "Reyona", "Babin"],
+    "experiences": ["Late night meetings.", "New ideas and new code."]
+  },
+  "graduated from Lewagon": {
+    "date": "March 12, 2022",
+    "image": "graduation_Lewagon"
+  }
+}

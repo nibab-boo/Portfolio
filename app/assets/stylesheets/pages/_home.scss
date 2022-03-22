@@ -1,11 +1,13 @@
 // Specific CSS for your home-page
-.whoami {
-  height: calc(100vh - 100px - 80px);
+.main-container {
+  min-height: calc(100vh - 100px - 80px);
   background-color: $main-color;
-  padding: 24px 0 0;
+}
+.whoami {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 24px 0 0;
 }
 
 .whoami-box {

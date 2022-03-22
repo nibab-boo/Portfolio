@@ -1,0 +1,25 @@
+.project-buttons {
+  .code-button {
+    // background-color: beige;
+    font-size: 1.4em;
+    color: $ligher;
+    display: inline-block;
+    min-width: 60px;
+    cursor: pointer;
+    text-decoration: none;
+    &::after {
+      content: "_";
+    }
+    &:hover::after {
+      animation: dashblinker infinite 2s linear;
+    }
+    @keyframes dashblinker {
+      0% {
+          content: "_";
+      }
+      100% {
+        content: "_ _";
+      }
+    }
+  }
+}

@@ -36,12 +36,19 @@
                     <% end %>
                     
                   </ul>
-                
                 </li>
               </ul>
             </div>
           </div>
-          <p class="project-experience"><i class="fas fa-quote-left"></i> <%= project.experience %> <i class="fa-solid fa-quote-right"></i></p>
+          <div class="project-experience"><i class="fas fa-quote-left"></i> <%= project.experience %> <i class="fa-solid fa-quote-right"></i></div>
+          <div class="project-buttons">
+
+            <% if project.repo_link %>
+              <%= link_to project.repo_link, target: "_blank", class: "code-button" do %>
+                <i class="fas fa-code"></i>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>

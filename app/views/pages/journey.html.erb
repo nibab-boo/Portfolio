@@ -1,0 +1,56 @@
+<div class="main-container px-5 d-flex align-items-center flex-column">
+  <div class="hash-box">
+    <h4>{</h4>
+    <% @json.each do |k, v| %>
+    <ul class="light no-style">
+      <li>
+        <% if v.is_a?(Array) %>
+          <h5><%= k %>: [</h5>
+          <ul>
+            
+            <% v.each do |item| %>
+              <ul><%= item %></ul>
+            <% end %>
+            
+          </ul>
+          <h6>]</h6>
+          
+        <% elsif v.is_a?(Hash) %>
+          <h5><%= k %>: {</h5>
+          <ul class="no-style">
+            
+            <% v.each do |item, value| %>
+              <% if item == :image %>
+                <%= image_tag value, width: "200px", alt: value %>
+              <% elsif value.is_a?(Array) %>
+                <h6><%= item %>: [</h6>
+                <ul>
+                  
+                  <% value.each do |item| %>
+                    <li><%= item %></li>
+                  <% end %>
+                  
+                </ul>
+                <h6>]</h6>
+              <% else %>
+                <li><h6 class="mini-title"><%= item %></h6>: <%= value %></li>
+              <% end %>
+            <% end %>
+            
+          </ul>
+          <h6>}</h6>
+        <% else %>
+          <li><h5 class="mini-title"><%= item %></h5>: <%= value %></li>
+        <% end %>
+
+      </li>
+      <li>
+
+      </li>
+      <li></li>
+    </ul>
+    <% end %>
+  <h4>}</h4>
+  </div>
+
+</div>
