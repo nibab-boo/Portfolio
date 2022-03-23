@@ -4,7 +4,7 @@
       <%= link_to "add new project", new_project_path, class: "btn btn-success btn-sm"  %>
     <% end %>
     <div class="case-studies">
-      <% @projects.each_with_index do |project, index| %>
+      <% @projects&.each_with_index do |project, index| %>
         <div class="project">
           <h3><%="#{index + 1}. " %><strong><%= link_to project.name, project.link, target: "_blank", class: "project-name"  %></strong></h3>
           <div class="project-flex-box">
