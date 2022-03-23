@@ -1,0 +1,16 @@
+<%= simple_form_for(project, data:{ controller: "image-change", target: "image-change.form"}) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :position %>
+    <%= f.input :colors %>
+    <%= f.input :fonts %>
+    <%= f.input :experience %>
+    <%= f.input :link %>
+    <%= f.input :repo_link %>
+    
+    <%= f.input :photo, as: :file, class: "project-image-file", input_html: { "data-action": 'change->image-change#imageUpdate'} %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+    <% if project.photo.attached? %>
+        <%# <%= cl_image_tag photo, :alttext %>
+        <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image mt-5", input_html: {"data-target": "image-change.img"} %>
+    <% end %>
+<% end %>

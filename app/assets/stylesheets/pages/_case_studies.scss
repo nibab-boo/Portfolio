@@ -9,6 +9,11 @@
   padding: 0 24px;
 }
 
+.project-image {
+  width: 100%;
+  height: auto;
+}
+
 .project {
   overflow: hidden;
   padding-top: 16px;
@@ -18,10 +23,6 @@
   .project-flex-box {
     display: flex;
     flex-direction: column;
-  }
-  .project-image {
-    width: 100%;
-    height: auto;
   }
   .project-name {
     text-decoration: none;
@@ -99,11 +100,11 @@
     .project-flex-box {
       flex-direction: row;
     }
-    .project-image {
-      width: 400px;
-      align-self: flex-start;
-      margin-right: 24px;
-    }
+  }
+  .project-image {
+    width: 400px;
+    align-self: flex-start;
+    margin-right: 24px;
   }
 }
 
