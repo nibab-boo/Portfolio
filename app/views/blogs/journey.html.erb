@@ -54,7 +54,7 @@
   </div>
 
   <div class="blogs-box mt-5">
-    <% if @blogs %>
+    <% if @blogs.present? %>
       <h3 style="text-align: left"> # Blogs </h3>
     <% end %>
     <% if current_user&.admin %>
