@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     @json = {
       "Started Lewagon": {
         "Date": "Sep 9, 2021",
-        "experiences": "undefined"
+        "experiences": "Array too long."
       },
       "worked on TwoByFour": {
         "Time Interval": "Roughly 2 weeks",
