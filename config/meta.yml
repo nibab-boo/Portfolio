@@ -1,0 +1,5 @@
+meta_product_name: "Babin"
+meta_title: "Babin - Fullstack Developer"
+meta_description: "I am Babin Bohora. I am a Fullstack Web Developer."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
