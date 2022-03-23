@@ -38,7 +38,7 @@
             <% end %>
             
           </ul>
-          <h6>}</h6>
+          <h5>}</h5>
         <% else %>
           <li><h5 class="mini-title"><%= item %></h5>: <%= value %></li>
         <% end %>
@@ -50,7 +50,20 @@
       <li></li>
     </ul>
     <% end %>
-  <h4>}</h4>
+    <h4>}</h4>
+  </div>
+
+  <div class="blogs-box mt-5">
+    <% if @blogs %>
+      <h3 style="text-align: left"> # Blogs </h3>
+    <% end %>
+    <% if current_user&.admin %>
+      <%= link_to "create a blog", new_blog_path, class: "btn btn-sm btn-info" %>
+    <% end %>
+    <% @blogs.each_with_index do |blog, index| %>
+      <%= render "components/blog_card", blog: blog, index: index %>
+    <% end %>
+
   </div>
 
 </div>

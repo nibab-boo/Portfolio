@@ -1,0 +1,8 @@
+<div class="blog-card">
+  <div class="blog-title"><span><%= index + 1 %>. </span>  <%= link_to blog.title, blog.url %>
+    <% if current_user&.admin %>
+      <%= link_to  "edit",edit_blog_path(blog), class: "btn btn-sm btn-info text-dark" %>
+    <% end %>
+  </div>
+  <div class="blogs-languagues"><%= blog.languages.join(" | ") %></div>
+</div>

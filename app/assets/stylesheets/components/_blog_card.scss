@@ -1,0 +1,42 @@
+.blog-card {
+  width: 300px;
+  // background-color: beige;
+  padding: 8px 16px;
+  margin: 8px auto;
+  border: 2px solid $darker;
+  transition: all 0.3s linear;
+  &:hover {
+    border-color: $ligher;
+    color: $ligher;
+    .blog-title a {
+      color: $lightest;
+    }
+  }
+  
+  .blog-title {
+    transition: all 0.3s linear;
+    span {
+      margin-right: 8px;
+    }
+    a{
+      font-size: bold;
+      color: $ligher;
+      text-decoration: none;
+    }
+  }
+  .blogs-languagues {
+    margin-left: 24px;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .blog-card {
+    width: 500px;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  .blog-card {
+    width: 700px;
+  }
+}

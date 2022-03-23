@@ -19,7 +19,7 @@ export default class extends Controller {
       } else {
         const img = document.createElement("img");
         img.src = reader.result;
-        img.classList.add("project-image","mt-5");
+        img.classList.add("project-image","mt-5", "d-block");
         // img.classList.add("mt-5"); 
         console.log(img);
         this.formTarget.appendChild(img);

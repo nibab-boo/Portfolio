@@ -11,6 +11,6 @@
     <%= f.button :submit, class: "btn btn-primary" %>
     <% if project.photo.attached? %>
         <%# <%= cl_image_tag photo, :alttext %>
-        <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image mt-5", input_html: {"data-target": "image-change.img"} %>
+        <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image mt-5 d-block", input_html: {"data-target": "image-change.img"} %>
     <% end %>
 <% end %>
