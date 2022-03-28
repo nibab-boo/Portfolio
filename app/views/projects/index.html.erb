@@ -16,15 +16,25 @@
             <div class="project-info">
               <ul>
                 <li class="project-position">- <%= project.position %></li>
+                <li class= ""><h6>languages</h6>
+                  <ul class="languages-container info-container">
+                    
+                    <% project.languages.each do |lang| %>
+                      <li class="project-info-box">
+                        <i class="devicon-<%= lang %>-plain"></i>
+                      </li>
+                    <% end %>
+                  </ul>
+                </li>
                 <li>
                   <h6>Colors</h6>
                   <ul class="colors-container info-container">
-                  <% project.colors.each do |color| %>
-                    <li class="project-info-box">
-                      <div class="info-circle" style="background: <%= color %>;"></div>
-                      <%= color %>
-                    </li>    
-                  <% end %>
+                    <% project.colors.each do |color| %>
+                      <li class="project-info-box">
+                        <div class="info-circle" style="background: <%= color %>;"></div>
+                        <%= color %>
+                      </li>    
+                    <% end %>
                   </ul>
                 
                 </li>
@@ -40,9 +50,12 @@
                     
                   </ul>
                 </li>
+                
               </ul>
             </div>
           </div>
+
+          
           <div class="project-experience"><i class="fas fa-quote-left"></i> <%= project.experience %> <i class="fa-solid fa-quote-right"></i></div>
           <div class="project-buttons">
 

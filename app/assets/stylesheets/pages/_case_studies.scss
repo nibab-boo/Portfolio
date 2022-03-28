@@ -38,6 +38,10 @@
         padding: 8px 0;
       }
     }
+
+    .languages-container {
+      font-size: 1.6em;
+    }
     
     .info-container {
       display: flex;
@@ -81,6 +85,8 @@
       margin: 0 0 16px 0px;
     }
   }
+ 
+
   .project-experience {
     padding: 8px;
     overflow: hidden;
