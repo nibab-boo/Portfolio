@@ -4,5 +4,9 @@
       <%= link_to  "edit",edit_blog_path(blog), class: "btn btn-sm btn-info text-dark" %>
     <% end %>
   </div>
-  <div class="blogs-languagues"><%= blog.languages.join(" | ") %></div>
+  <div class="blogs-languagues">
+    <% blog.languages.each do |lang| %>
+      <i class="devicon-<%= lang %>-plain"></i>
+    <% end %>  
+  </div>
 </div>

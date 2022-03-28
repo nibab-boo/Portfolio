@@ -26,12 +26,23 @@
   }
   .blogs-languagues {
     margin-left: 24px;
+    font-size: 1.4em;
+    i {
+      padding: 4px
+    }
   }
 }
 
 @media only screen and (min-width: 600px) {
   .blog-card {
     width: 500px;
+    
+    .blogs-languagues {
+      i {
+        padding: 0 4px;
+      }
+    }
+
   }
 }
 
