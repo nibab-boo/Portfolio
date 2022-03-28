@@ -24,7 +24,7 @@
     display: flex;
     flex-direction: column;
     .carousel {
-      width: 400px;
+      width: 100%;
       height: 100%;
     }
   }
@@ -109,6 +109,9 @@
   .project {
     .project-flex-box {
       flex-direction: row;
+      .carousel {
+        width: 400px;
+      }
     }
   }
   .project-image {
@@ -122,6 +125,7 @@
 @media (min-width: 576px) {
   .case-container {
     min-width: 540px;
+    
   }
 }
 @media (min-width: 768px) {
@@ -132,6 +136,16 @@
 @media (min-width: 992px) {
   .case-container {
     max-width: 960px;
+    .project {
+      .carousel {
+        width: 540px;
+      }
+    }
+    .project-image {
+      width: 540px;
+      align-self: flex-start;
+      margin-right: 24px;
+    }
   }
 }
 @media (min-width: 1200px) {  

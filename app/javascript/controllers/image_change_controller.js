@@ -7,24 +7,24 @@ export default class extends Controller {
   }
 
   imageUpdate(e) {
-    console.log("changed");
-    // console.log(e);
-    const file = e.target.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener("load", ()=> {
-      const img = document.querySelector(".project-image");
-      if (img) {
-        img.src = reader.result;
-      } else {
+    const files = e.target.files;
+    const imageBox = document.querySelector(".image-box");
+    if (imageBox) {
+      imageBox.innerHTML = ""
+    } else {
+      const imageBox = document.createElement("div");
+      imageBox.classList.add("image-box", "mt-5")
+      this.formTarget.appendChild(imageBox);
+    }
+    Object.keys(files).forEach( function (key) {
+      const reader = new FileReader();
+      reader.addEventListener("load", ()=> {
         const img = document.createElement("img");
         img.src = reader.result;
-        img.classList.add("project-image","mt-5", "d-block");
-        // img.classList.add("mt-5"); 
-        console.log(img);
-        this.formTarget.appendChild(img);
-      }
+        img.classList.add("project-image","m-2");
+        imageBox.appendChild(img);
+      });
+      reader.readAsDataURL(files[key]);
     });
-    reader.readAsDataURL(file);
   }
 }
