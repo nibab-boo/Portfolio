@@ -48,12 +48,10 @@
         height: auto;
         padding: 8px;
         margin: 8px;
+        text-align: center;
         font-size: 1.8em;
         color: $ligher;
-        background-color: adjust-color($color: #000B49, $lightness: .5%, $alpha: 1.0);  
-        img {
-          object-fit: contain;
-        }
+        background-color: adjust-color($color: #000B49, $lightness: .5%, $alpha: 1.0);
       }
     }
   }
