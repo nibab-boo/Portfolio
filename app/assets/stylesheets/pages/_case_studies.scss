@@ -23,6 +23,10 @@
   .project-flex-box {
     display: flex;
     flex-direction: column;
+    .carousel {
+      width: 400px;
+      height: 100%;
+    }
   }
   .project-name {
     text-decoration: none;
