@@ -7,11 +7,15 @@
     <%= f.input :experience %>
     <%= f.input :link %>
     <%= f.input :repo_link %>
-    
-    <%= f.input :photo, as: :file, class: "project-image-file", input_html: { "data-action": 'change->image-change#imageUpdate'} %>
+    <%= f.input :photos, as: :file, class: "project-image-file", input_html: { "data-action": 'change->image-change#imageUpdate', multiple: true} %>
     <%= f.button :submit, class: "btn btn-primary" %>
-    <% if project.photo.attached? %>
+    <% if project.photos.attached? %>
         <%# <%= cl_image_tag photo, :alttext %>
-        <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image mt-5 d-block", input_html: {"data-target": "image-change.img"} %>
+        <%#= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image mt-5 d-block", input_html: {"data-target": "image-change.img"} %>
+        <div class="image-box mt-5" data-target="image-change.image-box">
+            <% project.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, alt: "#{project.name}", class: "project-image" %>
+            <% end %>
+        </div>
     <% end %>
 <% end %>

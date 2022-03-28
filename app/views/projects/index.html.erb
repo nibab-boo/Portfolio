@@ -8,8 +8,13 @@
         <div class="project">
           <h3><%="#{index + 1}. " %><strong><%= link_to project.name, project.link, target: "_blank", class: "project-name"  %></strong></h3>
           <div class="project-flex-box">
-            <% if project.photo.attached? %>
-              <%= cl_image_tag project.photo.key, alt: "#{project.name}", class: "project-image" %>
+            <% if project.photos.attached? %>
+              
+              <% project.photos.each do |photo| %>
+                <%= cl_image_tag photo.key, alt: "#{project.name}", class: "project-image" %>
+    
+              <% end %>
+              
             <% else %>
               <%= image_tag "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmFuZG9tfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60", alt: "#{project.name}", class: "project-image" %>
             <% end %>
