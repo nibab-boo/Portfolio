@@ -4,18 +4,18 @@ export default class extends Controller {
   static targets = [ "form" ]
   connect() {
     console.log("hello");
-  }
-
-  imageUpdate(e) {
-    const files = e.target.files;
     const imageBox = document.querySelector(".image-box");
-    if (imageBox) {
-      imageBox.innerHTML = ""
-    } else {
+    if (!imageBox) {
       const imageBox = document.createElement("div");
       imageBox.classList.add("image-box", "mt-5")
       this.formTarget.appendChild(imageBox);
     }
+  }
+
+  imageUpdate(e) {
+    const files = e.target.files;
+    const imageBox = document.querySelector(".image-box.mt-5");
+    imageBox.innerHTML = ""
     Object.keys(files).forEach( function (key) {
       const reader = new FileReader();
       reader.addEventListener("load", ()=> {
