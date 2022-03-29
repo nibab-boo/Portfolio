@@ -33,8 +33,7 @@
     color: inherit;
   }
   .project-info {
-    padding: 8px 16px;
-    
+      padding: 16px 16px 0;    
     ul {
       list-style: none;
       padding: 0;
@@ -109,15 +108,23 @@
   .project {
     .project-flex-box {
       flex-direction: row;
+      // justify-content: center;
       .carousel {
         width: 400px;
+      }
+    }
+    .project-info {
+      // padding-left: 40px;
+      padding-top: 0;
+      .project-position {
+        padding-top: 0;
       }
     }
   }
   .project-image {
     width: 400px;
     align-self: flex-start;
-    margin-right: 24px;
+    margin-right: 36px;
   }
 }
 
@@ -141,6 +148,9 @@
         width: 540px;
       }
     }
+    .project-info {
+      padding-left: 40px;
+    }
     .project-image {
       width: 540px;
       align-self: flex-start;
@@ -148,8 +158,8 @@
     }
   }
 }
-@media (min-width: 1200px) {  
-  .case-container{
-    max-width: 1140px;
-  }
-}
+// @media (min-width: 1200px) {  
+//   .case-container{
+//     max-width: 1000px;
+//   }
+// }
