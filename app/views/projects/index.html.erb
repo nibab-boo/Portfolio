@@ -10,11 +10,11 @@
           <div class="project-flex-box">
             <% if project.photos.attached? %>
               <%# Bootstrap carousel %>
-              <div id="photoCarouselPhoto" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+              <div id="photoCarouselPhoto<%= project.id %>" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-indicators">
                   
                   <% project.photos.length.times do |index| %>
-                    <button type="button" data-bs-target="#photoCarouselPhoto" data-bs-slide-to="<%= index %>" <%=  index.zero? ? " class='active' aria-current='true'".html_safe : "" %> aria-label="Slide <%= index %>"></button>
+                    <button type="button" data-bs-target="#photoCarouselPhoto<%= project.id %>" data-bs-slide-to="<%= index %>" <%=  index.zero? ? " class='active' aria-current='true'".html_safe : "" %> aria-label="Slide <%= index %>"></button>
                   <% end %>
                   
                 </div>
@@ -25,11 +25,11 @@
                   </div>
                 <% end %>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#photoCarouselPhoto" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#photoCarouselPhoto<%= project.id %>" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#photoCarouselPhoto" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" data-bs-target="#photoCarouselPhoto<%= project.id %>" data-bs-slide="next">
                   <span class="carousel-control-next-icon" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
