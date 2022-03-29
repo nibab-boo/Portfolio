@@ -31,22 +31,22 @@
         border-radius: 8px;    
       }
     }
-    .cv-button {
-      font-size: .6em;
-      border-radius: 12px;
-      border: $darker solid 2px;
-      line-height: 100%;
-      &:hover {
-        background-color: $lightest;
-        color: $darker;
-        li {
-          background-color: inherit;
-        }
-      }
+    
+  }
+}
+.cv-button {
+  font-size: .6em;
+  border-radius: 12px;
+  border: $darker solid 2px;
+  line-height: 100%;
+  &:hover {
+    background-color: $lightest;
+    color: $darker;
+    li {
+      background-color: inherit;
     }
   }
 }
-
 @media only screen and (min-width: 660px) {
   .nav-list {
     font-size: 1.6em;

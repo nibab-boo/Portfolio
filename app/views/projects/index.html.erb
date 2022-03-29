@@ -85,7 +85,8 @@
 
             <% if project.repo_link %>
               <%= link_to project.repo_link, target: "_blank", class: "code-button" do %>
-                <i class="fas fa-code"></i>
+                <%# <i class="fa-brands fa-github"></i> %>
+                <i class="fa-brands fa-github-alt"></i>
               <% end %>  
             <% end %>
             <% if current_user&.admin %>

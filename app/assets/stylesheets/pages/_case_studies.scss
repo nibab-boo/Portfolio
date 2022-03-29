@@ -108,13 +108,13 @@
   .project {
     .project-flex-box {
       flex-direction: row;
-      // justify-content: center;
+      justify-content: center;
       .carousel {
         width: 400px;
       }
     }
     .project-info {
-      // padding-left: 40px;
+      padding-left: 40px;
       padding-top: 0;
       .project-position {
         padding-top: 0;
@@ -149,7 +149,7 @@
       }
     }
     .project-info {
-      padding-left: 40px;
+      padding-left: 48px;
     }
     .project-image {
       width: 540px;
@@ -158,8 +158,11 @@
     }
   }
 }
-// @media (min-width: 1200px) {  
-//   .case-container{
-//     max-width: 1000px;
-//   }
-// }
+@media (min-width: 1200px) {  
+  .case-container{
+    max-width: 1000px;
+    .project-info {
+      padding-left: 56px;
+    }
+  }
+}
