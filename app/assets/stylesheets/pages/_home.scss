@@ -7,7 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px 0 0;
+  padding: 0 0;
 }
 
 .whoami-box {
@@ -21,49 +21,55 @@
     width: 60vw;
     max-width: 400px;
     font-family: $headers-font;
-    margin-bottom: 24px;
+    margin-bottom: 50px;
     .lightest {
       color: $lightest;
       filter: drop-shadow(0 0 0.85rem $ligher);
     }
+    & + h5 {
+      color: $darker;
+      font-weight: bold;
+      margin-bottom: 0;
+    }
   }
 
   .tools-i-use {
-    h5 {
-      color: $darker;
-      // margin-left: 100px;
-      text-align: center;
-      font-weight: bold;
-    }
-
+    
     .lang-box {
-      // display: grid;
-      // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
       display: flex;
-      padding: 16px;
+      padding: 0 16px 16px;
       justify-content: center;
       flex-wrap: wrap;
       .lang {
-        min-width: 120px;
+        // min-width: 120px;
         height: auto;
         padding: 8px;
-        margin: 8px;
+        // margin: 8px;
         text-align: center;
         font-size: 1.8em;
         color: $ligher;
         background-color: adjust-color($color: #000B49, $lightness: .5%, $alpha: 1.0);
+        i {
+          padding: 4px;
+        }
       }
     }
   }
 }
 
 @media only screen and (min-width: 800px) {
- .tools-i-use {
-   margin-top: 36px;
- }  
-}
-@media only screen and (min-height: 800px) {
- .tools-i-use {
-   margin-top: 8vh;
+  .whoami-box {
+    font-size: 1.2em
+  }
+  .whoami-intro { 
+    & + h5 {
+      margin-top: 54px;
+    }
+  }
+  .tools-i-use {
+    margin-top: 16px;
+    .lang {
+      font-size: 2em;
+    }
  }  
 }

@@ -10,9 +10,6 @@
         <i class="fa-brands fa-linkedin"></i>
       <% end %>
     </li>
-    <li>
-      <%= link_to "My CV", asset_path("second_cv.pdf"), class: "cv-button" %>
-    </li>
     <% if current_user&.admin %>
       <li><%= link_to "log out", destroy_user_session_path, class: "btn btn-sm btn-danger" ,method: :delete%></li>
     <% end %>
