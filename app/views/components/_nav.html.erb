@@ -1,13 +1,16 @@
  <div class="nav-bar">
   <ul class="nav-list">
     <%= link_to root_path do  %>
-      <li>whoami!</li>
+      <li>whoami?</li>
     <% end %>
     <%= link_to journey_path do  %>
       <li>My Journey</li>
     <% end %>
     <%= link_to projects_path do  %>
       <li>Case Studies</li>
+    <% end %>
+    <%= link_to asset_path("second_cv.pdf"), class: "cv-button" do %>
+      <li>My CV</li>
     <% end %>
   </ul>
 </div>

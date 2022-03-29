@@ -10,10 +10,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    p "inside create"
     @project = Project.new(project_params)
     @project.fonts = JSON.parse(params["project"]["fonts"])
     @project.colors = JSON.parse(params["project"]["colors"])
     @project.languages = JSON.parse(params["project"]["languages"])
+    p "going for a save"
     if @project.save
       redirect_to projects_path
     else
