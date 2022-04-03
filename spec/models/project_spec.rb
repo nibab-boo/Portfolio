@@ -41,17 +41,11 @@ RSpec.describe Project, type: :model do
       end
 
       context "invalid experience" do
-        before { project.experience = "Expert"}
-        it 'returns an invalid project with experience less than 10 letters long' do
-          project.valid?
-          expect(project.errors.messages).to eq( { experience: ["is too short (minimum is 10 characters)"] })
-        end
-
+       
         it 'returns an invalid project without experience' do
           project.experience = nil
           project.valid?
-          expect(project.errors.messages).to eq( { experience: ["can't be blank",
-                                                               "is too short (minimum is 10 characters)"] })
+          expect(project.errors.messages).to eq( { experience: ["can't be blank"] })
         end
 
       end
