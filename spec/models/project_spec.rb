@@ -12,7 +12,7 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
 
-  let!(:project) { Project.new(name: "Title", position: "Position", experience: "Experience should be greater than 10 letters long", languages: ["rails", "rspec"]) }
+  let(:project) { Project.new(name: "Title", position: "Position", experience: "Experience should be greater than 10 letters long", languages: ["rails", "rspec"]) }
 
   describe '#initialize' do
     context "when valid" do
