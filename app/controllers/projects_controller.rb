@@ -15,7 +15,6 @@ class ProjectsController < ApplicationController
     @project.fonts = JSON.parse(params["project"]["fonts"])
     @project.colors = JSON.parse(params["project"]["colors"])
     @project.languages = JSON.parse(params["project"]["languages"])
-    # raise
     if @project.save
       redirect_to projects_path
     else
