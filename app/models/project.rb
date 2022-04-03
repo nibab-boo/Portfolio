@@ -3,7 +3,7 @@ class Project < ApplicationRecord
 
   validates :name, :position, :experience, :languages, presence: true
   # validates :name, presence: true
-  validates :experience, length: { minimum: 10 }
+  # validates :experience, length: { minimum: 10 }
   
   # for testing method
   # def test_experiment
