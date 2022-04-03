@@ -1,8 +1,8 @@
 class ProjectsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @projects = Project.all.order(updated_at: :desc)
+    @projects = Project.order(id: :asc)
   end
   
   def new
@@ -10,12 +10,12 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    p "inside create"
+    # p "inside create"
     @project = Project.new(project_params)
     @project.fonts = JSON.parse(params["project"]["fonts"])
     @project.colors = JSON.parse(params["project"]["colors"])
     @project.languages = JSON.parse(params["project"]["languages"])
-    p "going for a save"
+    # raise
     if @project.save
       redirect_to projects_path
     else
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     if @project.update(project_params)
       redirect_to projects_path
     else
-      render :new
+      render :edit
     end
   end
 
