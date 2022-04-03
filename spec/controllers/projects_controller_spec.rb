@@ -24,10 +24,7 @@ RSpec.describe ProjectsController, type: :controller do
   end
   
   
-  context "user sign in" do
-    
-    
-    
+  context "user siged_in" do
     # sign in as user
     before { sign_in user }
     # create a post
@@ -40,6 +37,11 @@ RSpec.describe ProjectsController, type: :controller do
         
         expect(response).to be_successful
       end
+
+        it "renders projects/index.html.erb" do
+          get :index
+          expect(response).to render_template(:index)
+        end
     end
     
     describe "#new" do
@@ -142,9 +144,96 @@ RSpec.describe ProjectsController, type: :controller do
 
         it "render project/edit" do
           expect(response).to render_template(:edit)
-        end
+        end 
       end
     end
   end
-  
+
+  context "user not signed_in" do
+    before { sign_in nil }
+
+    describe "#index" do
+      it "access to index" do
+        get :index
+        expect(response).to be_successful
+      end
+
+      it "renders projects/index.html.erb" do
+        get :index
+        expect(response).to render_template(:index)
+      end
+    end
+
+    describe "#new" do
+      it "not render new" do
+        get :new
+        expect(response).not_to render_template(:new)
+      end
+
+      it "redirects to log_in" do
+        get :new
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      it "no project instance" do
+        get :new
+        expect(assigns(:project)).to eq(nil)
+      end
+    end
+
+    describe "#create" do
+
+      it "no project created" do
+        expect{ post :create, params: { project: attri }}.not_to change{ Project.count }
+      end
+
+      it "redirects to log_in" do
+        post :create, params: { project: attri }
+        expect(response).to redirect_to(new_user_session_path)
+      end
+    end
+    
+    describe "#edit" do
+      before do
+        sign_in user
+        post :create, params: { project: attri }
+        sign_in nil
+        get :edit, params: { id: Project.find_by(name: "Title").id }
+      end
+
+      it "redirects to log_in" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      it "not render project/edit" do
+        expect(response).not_to render_template(:edit)        
+      end
+
+    end
+
+    describe "#update" do
+      before do
+        sign_in user
+        post :create, params: { project: attri }
+        sign_in nil
+        attri[:position] = "New Position"
+        put :update, params: { project: attri, id: Project.find_by(name: "Title").id }
+      end
+
+      # should not update project
+      it "not update project" do
+        expect(assigns(:project).position).to eq("Position")
+      end
+
+      # should redirect_to sign_in
+      it "redirect to sign_in" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      # should not redirect_to projects_path
+      it "not redirect_to projects_path" do
+        expect(response).not_to redirect_to(projects_path)
+      end
+    end
+  end
 end
