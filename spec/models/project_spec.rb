@@ -40,14 +40,10 @@ RSpec.describe Project, type: :model do
         expect(project.errors.messages).to eq({ position: ["can't be blank"] })
       end
 
-      context "invalid experience" do
-       
-        it 'returns an invalid project without experience' do
-          project.experience = nil
-          project.valid?
-          expect(project.errors.messages).to eq( { experience: ["can't be blank"] })
-        end
-
+      it 'returns an invalid project without experience' do
+        project.experience = nil
+        project.valid?
+        expect(project.errors.messages).to eq( { experience: ["can't be blank"] })
       end
 
       it 'returns an invalid project without languages' do
