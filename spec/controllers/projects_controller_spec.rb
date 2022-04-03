@@ -42,17 +42,18 @@ RSpec.describe ProjectsController, type: :controller do
       end
     end
     
-    # describe "#new" do
-    #   it "give a new project" do
-    #     get :new
-
-    #     expect(assigns(:project)).to be_a_new(Project)
-    #   end
-    # end
+    describe "#new" do
+      it "give a new project" do
+        get :new
+        
+        # p (assigns(:project))
+        expect(assigns(:project)).to be_a_new(Project)
+      end
+    end
     
-    before { post :create, params: { project: attri }}
-   
+      
     describe '#create' do
+      before { post :create, params: { project: attri }}
       
       context "when valid Project" do
         it 'create a new Project' do
@@ -61,6 +62,10 @@ RSpec.describe ProjectsController, type: :controller do
         
         it 'redirects to index_path' do
           expect(response).to redirect_to(projects_path)
+        end
+
+        it 'increase count by 1' do
+          expect { post :create, params: { project: attri }}.to change{Project.count}.by(1)
         end
       end
       
@@ -76,32 +81,67 @@ RSpec.describe ProjectsController, type: :controller do
         end
         
         # render new
+        it "render projects/new" do
+          expect(response).to render_template(:new)
+        end
+      end
+    end
+
+    describe "#edit" do
+      before { post :create, params: { project: attri }}
+      
+      it "return valid project" do
+        project = Project.find_by(name: "Title")
+        get :edit, params: { id: project.id }
+
+        expect(assigns(:project)  ).to eq(project)
       end
     end
     
     describe "#update" do
+      before { post :create, params: { project: attri }}
       
       let!(:project) { Project.find_by(name: "Title") }
 
       context "valid params" do
         
+        # subject for counter
+        subject do 
+            attri[:name] = "new Title"
+            # p params
+            put :update , params: { project: attri, id: project.id}
+            project.reload
+        end
+
         it 'update Project' do
-          attri[:name] = "new Title"
-          # p params
-          put :update , params: { project: attri, id: project.id}
-          project.reload
+          subject
           expect(project.name).to eq("new Title")
+        end
+
+        it "count not increased" do
+          expect{subject}.not_to change{ Project.count }
+        end
+
+        it "redirects to index_path" do
+          subject
+          expect(response).to redirect_to(projects_path)
         end
 
       end
 
       context "invalid params" do
-        
-        it "not update" do
+        before do
           attri[:position] = ""
           put :update , params: { project: attri, id: project.id}
           project.reload
+        end
+
+        it "not update" do
           expect(project.position).to eq("Position")
+        end
+
+        it "render project/edit" do
+          expect(response).to render_template(:edit)
         end
       end
     end
