@@ -12,7 +12,9 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
 
-  let(:project) { Project.new(name: "Title", position: "Position", experience: "Experience should be greater than 10 letters long", languages: ["rails", "rspec"]) }
+  let(:project) { 
+    build(:project)
+  }
 
   describe '#initialize' do
     context "when valid" do
@@ -28,7 +30,6 @@ RSpec.describe Project, type: :model do
       end
 
       it 'returns an invalid project without title' do
-        # project = Project.new()
         project = Project.new(position: "Position", experience: "Experience", languages: ["rails", "rspec"])
         project.valid?
         expect(project.errors.messages).to eq( { name: ["can't be blank"] } )
