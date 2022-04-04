@@ -19,10 +19,7 @@ RSpec.describe ProjectsController, type: :controller do
     {name: "Title", position: "Position",languages: "[\"ruby\", \"html5\"]", fonts: "[]", colors: "[]", experience: "Experience is long."}
   end
 
-  let!(:user) do
-    User.create(email: "test1@test.com", password: "password123")
-  end
-  
+  let(:user) { create(:user) }
   
   context "user siged_in" do
     # sign in as user
