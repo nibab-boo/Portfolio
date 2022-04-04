@@ -12,13 +12,10 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
 
-  let(:project) { 
-    build(:project)
-  }
-
   describe '#initialize' do
     context "when valid" do
       it 'returns a created project' do
+        project = build(:project)
         expect(project.valid?).to eq(true)
       end
     end
@@ -29,26 +26,26 @@ RSpec.describe Project, type: :model do
         expect(project.valid?).to eq(false)
       end
 
-      it 'returns an invalid project without title' do
-        project = Project.new(position: "Position", experience: "Experience", languages: ["rails", "rspec"])
+      it 'returns an invalid project without name' do
+        project = build(:project, name: nil)
         project.valid?
         expect(project.errors.messages).to eq( { name: ["can't be blank"] } )
       end
 
       it 'returns an invalid project without position' do
-        project = Project.new(name: "Title", experience: "Experience", languages: ["rails", "rspec"])
+        project = build(:project, position: nil)
         project.valid?
         expect(project.errors.messages).to eq({ position: ["can't be blank"] })
       end
 
       it 'returns an invalid project without experience' do
-        project.experience = nil
+        project = build(:project, experience: nil)
         project.valid?
         expect(project.errors.messages).to eq( { experience: ["can't be blank"] })
       end
 
       it 'returns an invalid project without languages' do
-        project = Project.new(name: "Title", position: "Position", experience: "Experience")
+        project = build(:project, languages: [])
         project.valid?
         expect(project.errors.messages).to eq({ languages: ["can't be blank"] })
       end
