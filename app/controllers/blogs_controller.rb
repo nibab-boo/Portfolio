@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   
   def journey
     # json = JSON.parse(File.read('./journey.json'));
-    @blogs = Blog.order(id: :desc);
+    @blogs = Blog.order(id: :desc)
     @json = {
       "Started Lewagon": {
         "Date": "Sep 9, 2021",
