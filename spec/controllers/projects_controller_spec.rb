@@ -92,7 +92,6 @@ RSpec.describe ProjectsController, type: :controller do
         post :create, params: { project: attri }
         project = Project.find_by(name: "Title")
         get :edit, params: { id: project.id }
-
         expect(assigns(:project)  ).to eq(project)
       end
     end
