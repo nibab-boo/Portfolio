@@ -15,7 +15,7 @@ RSpec.describe ProjectsController, type: :controller do
   # test prevent authenticate_user!
   # before { allow(controller).to receive(:authenticate_user!).and_return(true) }
   
-  let!(:attri) do
+  let(:attri) do
     {name: "Title", position: "Position",languages: "[\"ruby\", \"html5\"]", fonts: "[]", colors: "[]", experience: "Experience is long."}
   end
 
@@ -87,9 +87,9 @@ RSpec.describe ProjectsController, type: :controller do
     end
 
     describe "#edit" do
-      before { post :create, params: { project: attri }}
       
       it "return valid project" do
+        post :create, params: { project: attri }
         project = Project.find_by(name: "Title")
         get :edit, params: { id: project.id }
 
@@ -104,10 +104,8 @@ RSpec.describe ProjectsController, type: :controller do
 
       context "valid params" do
         
-        # subject for counter
         subject do 
             attri[:name] = "new Title"
-            # p params
             put :update , params: { project: attri, id: project.id}
             project.reload
         end
@@ -150,30 +148,29 @@ RSpec.describe ProjectsController, type: :controller do
     before { sign_in nil }
 
     describe "#index" do
+      before { get :index }
+
       it "access to index" do
-        get :index
         expect(response).to be_successful
       end
 
       it "renders projects/index.html.erb" do
-        get :index
         expect(response).to render_template(:index)
       end
     end
 
     describe "#new" do
+      before { get :new }
+
       it "not render new" do
-        get :new
         expect(response).not_to render_template(:new)
       end
 
       it "redirects to log_in" do
-        get :new
         expect(response).to redirect_to(new_user_session_path)
       end
 
       it "no project instance" do
-        get :new
         expect(assigns(:project)).to eq(nil)
       end
     end
