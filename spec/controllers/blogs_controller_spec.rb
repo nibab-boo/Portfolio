@@ -22,11 +22,11 @@ RSpec.describe BlogsController, type: :controller do
         expect(assigns(:json).class).to be(Hash)
       end
 
-      it "passes blogs with old at last" do
+      it "passes blogs" do
         expect(assigns(:blogs).to_a).to match_array(Blog.order(id: :desc))
       end
     end
-
+    
     describe "#new" do
       before { get :new }
       # renders new
@@ -151,6 +151,105 @@ RSpec.describe BlogsController, type: :controller do
   end
 
   context " user sign_out " do
-    
+
+    describe "#journey" do
+      before { get :journey }
+
+      it "access to index" do
+        expect(response).to be_successful
+      end
+
+      it "render blogs/journey.html.erb" do
+        expect(response).to render_template(:journey)
+      end
+
+      it "passing a json" do
+        expect(assigns(:json).class).to be(Hash)
+      end
+
+      it "passes blogs" do
+        expect(assigns(:blogs).to_a).to match_array(Blog.order(id: :desc))
+      end
+    end
+
+    describe "#new" do
+      before { get :new }
+
+      #instance variable shouldnot exist
+      it "instance variable not exist" do
+        expect(assigns(:blog)).to eq(nil)
+      end
+      #redirect to new_session_path
+      it "redirect to log_in" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+      
+      # doesnot render usual page
+      it "not render new" do
+        expect(response).not_to render_template(:new)
+      end
+
+    end
+
+    describe "#create" do
+      subject do
+        post :create, params: { blog: attributes_for(:blog, url: "www.test.com") }
+      end
+
+      #redirect to new_session_path
+      it "redirect to log_in" do
+        subject
+        expect(response).to redirect_to(new_user_session_path)
+      end
+      # does not create
+      it "not create new blog" do
+        expect{subject}.not_to change{ Project.count }
+      end
+      # doesnot render usual page
+      it "not redirect to journey" do
+        subject
+        expect(response).not_to redirect_to(journey_path)
+      end
+    end
+
+    describe "#edit" do
+      #redirect to new_session_path
+      before do 
+        sign_in create(:user)
+        post :create, params: { blog: attributes_for(:blog, url: "www.test.com") }
+        sign_in nil
+        get :edit, params: { id: Blog.find_by(url: "www.test.com") } 
+      end
+
+      it "redirect to log_in" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      # doesnot render usual page
+      it "not render blog/edit" do
+        expect(response).not_to render_template(:edit)
+      end
+    end
+
+    describe "#update" do
+      before do 
+        sign_in create(:user)
+        post :create, params: { blog: attributes_for(:blog, url: "www.test.com") }
+        sign_in nil
+        put :update, params: { blog: attributes_for(:blog), id: Blog.find_by(url: "www.test.com") } 
+      end
+      #redirect to new_session_path
+      it "not update blog" do
+        expect(assigns(:blog).url).to eq("www.test.com")
+      end
+
+      it "redirect to log_in" do
+        expect(response).to redirect_to(new_user_session_path)
+      end
+
+      it "not redirect to journey_path" do
+        expect(response).not_to redirect_to(journey_path)
+      end
+    end
   end
 end
