@@ -99,6 +99,11 @@
                 <i class="fa-brands fa-github-alt"></i>
               <% end %>  
             <% end %>
+            <% if project.link %>
+              <%= link_to project.link, target: "_blank", class: "code-button" do %>
+                <i class="fa-solid fa-display"></i>
+              <% end %>  
+            <% end %>
             <% if current_user&.admin %>
               <%= link_to "edit", edit_project_path(project), class: "btn btn-sm btn-info"  %>
             <% end %>
