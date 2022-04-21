@@ -75,8 +75,8 @@
                     <ul class="fonts-container info-container">
                       
                       <% project.fonts.each do |font| %>
-                        <li class="project-info-box">
-                          <div class="font-circle info-circle" style="@import url('https://fonts.googleapis.com/css2?family=<%= font %>&display=swap'); font-family: <%= font %>;">Aa</div>
+                        <li class="project-info-box" data-style="@import url('https://fonts.googleapis.com/css2?family=<%= font %>&display=swap');" style="font-family: <%= font %>;">
+                          <div class="font-circle info-circle">Aa</div>
                           <%= font %>
                         </li>
                       <% end %>
@@ -112,3 +112,17 @@
       <% end %>
     </div>
 </div>
+
+<script>
+  const fontBoxes = document.querySelectorAll(".fonts-container li");
+  const head = document.querySelector("head");
+  console.log(head);
+  const style = document.createElement("style");
+  console.log(style);
+  let css = '';
+  fontBoxes.forEach(fontBox => {
+    css += fontBox.dataset.style;
+  });   
+  style.insertAdjacentHTML('afterbegin', css);
+  head.appendChild(style);
+</script>
