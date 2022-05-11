@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.order(id: :desc)
     @json = {
       "Started Lewagon": {
-        "Date": "Sep 9, 2021",
+        "date": "Sep 9, 2021",
         "experiences": "Array too long."
       },
       "worked on TwoByFour": {
@@ -17,6 +17,13 @@ class BlogsController < ApplicationController
       "graduated from Lewagon": {
         "date": "March 12, 2022",
         "image": "lewagon_completion.jpg"
+      },
+      "started working on Dynamism": {
+        "date": "first week of April, 2022"
+      },
+      "volunteering for Mamoru": {
+        "date": "April 25, 2022",
+        "position": "React developer"
       }
     }
     # byebug
